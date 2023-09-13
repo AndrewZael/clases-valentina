@@ -6,5 +6,28 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'valentina';
+
+  title: string = 'Valentina';
+  message: string = 'fsdfsd';
+  showTitle: boolean = false;
+
+  data: Array<any> = [
+    {
+      title: 'Titulo',
+      text: 'Text'
+    },
+    {
+      title: 'Titulo',
+      text: 'Text'
+    },
+    {
+      title: 'Titulo',
+      text: 'Text'
+    },
+    {
+      title: 'Titulo',
+      text: 'Text'
+    }
+  ];
+
 }

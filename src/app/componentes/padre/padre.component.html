@@ -1,0 +1,5 @@
+<p>Padre</p>
+<button (click)="changeAge()">Pasar edad a hijo</button>
+<!-- changeYear es el nombre del @Outpu() en el componente hijo -->
+<app-hijo (changeYear)="getDataChild($event)"
+class="d-block p-3 border border-primary rounded" [edad]="edad"></app-hijo>
