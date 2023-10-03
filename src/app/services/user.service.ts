@@ -9,7 +9,7 @@ export class UserService {
 
   constructor() { }
 
-  user: userInterface = { name: 'Andres', lasname: 'Valdes', age: 30} as userInterface;
+  user: userInterface = { name: 'Andres', lastname: 'Valdes', age: 30} as userInterface;
   userObs: Subject<userInterface> = new Subject();
   userObsB: BehaviorSubject<userInterface> = new BehaviorSubject(this.user);
 
