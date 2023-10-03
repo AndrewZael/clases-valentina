@@ -5,7 +5,7 @@
 
 <div *ngIf="user$ | async as user; else preload">
     {{ user.name }}
-    {{ user.lasname }}
+    {{ user.lastname }}
     {{ user.age }}
 </div>
 <ng-template #preload>
