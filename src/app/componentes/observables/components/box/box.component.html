@@ -3,11 +3,11 @@
 
 <input (keyup)="setUser($event)" type="text" placeholder="Nombre de usuario" />
 
-<div *ngIf="user$ | async as user; else preload">
-    {{ user.name }}
-    {{ user.lastname }}
-    {{ user.age }}
+<div *ngIf="user$ | async as user; else preload" class="fw-bold my-3">
+    {{ user.name }}<br>
+    {{ user.lastname }}<br>
+    {{ user.age }}<br>
 </div>
 <ng-template #preload>
-    <p>Cargando....</p>
+    <p class="my-3">Cargando....</p>
 </ng-template>

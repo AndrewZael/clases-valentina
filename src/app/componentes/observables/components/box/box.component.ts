@@ -16,6 +16,7 @@ export class BoxComponent implements OnInit {
 
   ngOnInit(): void {
     setTimeout(() => {
+      this.currentUser = this.userService.getCurrentUser();
       this.user$ = this.userService.getData();
     },2000);
 

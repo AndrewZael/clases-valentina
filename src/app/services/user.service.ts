@@ -18,12 +18,17 @@ export class UserService {
   }
 
   setCurrentUser(user: userInterface){
-    this.userObsB.next(user);
-    this.user = user;  
+    this.user = user;
+    this.userObsB.next(this.user);  
   }
 
   getData(): Observable<userInterface>{
-    return of(this.user);
+    // Esta forma solo estoy retornando un observable, pero no puedo cambiarlo más adelante
+    //return of(this.user);
+
+    // De esta forma puedo retornar un observable que este afecto a cambios utilizando el pipe async
+    // Aquí estoy retornado el observable de la variable userObsB
+    return this.userObsB.asObservable();
   }
 
 
