@@ -1,17 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Subject, BehaviorSubject, Observable, of } from 'rxjs';
 import { userInterface } from '../interfaces/user.interface';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   user: userInterface = { name: 'Andres', lastname: 'Valdes', age: 30} as userInterface;
   userObs: Subject<userInterface> = new Subject();
   userObsB: BehaviorSubject<userInterface> = new BehaviorSubject(this.user);
+
+  getUrl(): Observable<any>{
+    return this.http.get('/error');
+  }
 
   getCurrentUser(): userInterface{
     return this.user;

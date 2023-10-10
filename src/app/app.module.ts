@@ -10,7 +10,11 @@ import { ObservablesComponent } from './componentes/observables/observables.comp
 import { BoxComponent } from './componentes/observables/components/box/box.component';
 import { BoxIIComponent } from './componentes/observables/components/box-ii/box-ii.component';
 import { BoxIIIComponent } from './componentes/observables/components/box-iii/box-iii.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ErrorInterceptor } from './services/error.interceptor';
+import { HttpClientModule } from '@angular/common/http';
 
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,9 +30,17 @@ import { BoxIIIComponent } from './componentes/observables/components/box-iii/bo
     BoxIIIComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
